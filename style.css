@@ -1,0 +1,334 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Fullscreen slideshow background */
+.fullscreen-slideshow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+}
+.slide-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+.slide-bg.fade {
+    opacity: 1;
+}
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+@keyframes fade {
+    from {opacity: 0.4;}
+    to {opacity: 1;}
+}
+
+/* Overlay content (scrolling) */
+.overlay-content {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.5); /* dark overlay to make text readable */
+    padding: 20px;
+}
+
+.top-logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+.top-logo-img {
+    max-height: 50px;
+}
+
+/* Auth card - center like dittomusic */
+.auth-card-center {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; /* to align right, or center? I'll put center but you can change */
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.auth-card {
+    background: white;
+    border-radius: 32px;
+    padding: 40px 35px;
+    width: 100%;
+    max-width: 460px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+}
+.auth-card h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+.new-user {
+    margin-bottom: 25px;
+    color: #475569;
+}
+.new-user a, .forgot-password a, .back-login a {
+    color: #f97316;
+    text-decoration: none;
+    font-weight: 600;
+}
+.auth-card input {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    font-size: 16px;
+    outline: none;
+}
+.auth-card input:focus {
+    border-color: #f97316;
+}
+.btn-continue {
+    width: 100%;
+    background: #f97316;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 8px;
+}
+.btn-continue:hover {
+    background: #ea580c;
+}
+.forgot-password {
+    text-align: right;
+    margin: 12px 0 20px;
+    font-size: 14px;
+}
+.divider {
+    text-align: center;
+    margin: 20px 0;
+    color: #94a3b8;
+    position: relative;
+}
+.divider::before, .divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 45%;
+    height: 1px;
+    background: #e2e8f0;
+}
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+.btn-google-full {
+    width: 100%;
+    background: #f1f5f9;
+    border: none;
+    padding: 12px;
+    border-radius: 40px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+}
+.recaptcha-note {
+    font-size: 11px;
+    color: #64748b;
+    text-align: center;
+    margin-top: 25px;
+}
+.error-msg {
+    color: #ef4444;
+    font-size: 13px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Services preview - white cards on dark background */
+.services-preview {
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
+    width: 100%;
+    margin-top: 80px;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 48px 48px 0 0;
+}
+.services-preview h2 {
+    color: white;
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+    max-width: 1300px;
+    margin: auto;
+}
+.preview-card {
+    background: rgba(255,255,255,0.9);
+    padding: 30px 20px;
+    border-radius: 28px;
+    transition: 0.3s;
+}
+.preview-card:hover {
+    transform: translateY(-5px);
+    background: white;
+}
+.preview-card i {
+    font-size: 48px;
+    color: #f97316;
+}
+.preview-card h3 {
+    font-size: 22px;
+    margin: 15px 0 10px;
+}
+.preview-card p {
+    color: #475569;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .auth-card-center {
+        justify-content: center;
+    }
+    .auth-card {
+        padding: 30px 20px;
+    }
+    .services-preview {
+        margin-top: 40px;
+        padding: 40px 15px;
+    }
+    .preview-grid {
+        grid-template-columns: 1fr;
+    }
+    .top-logo {
+        position: relative;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .overlay-content {
+        justify-content: flex-start;
+        padding-top: 80px;
+    }
+}
+
+/* Chatbot styles (as before, ensure they are included) */
+.chatbot-bubble {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #f97316, #ef4444);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 1001;
+}
+.chatbot-bubble i { font-size: 28px; color: white; }
+.chatbot-window {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 320px;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    z-index: 1001;
+    border: 1px solid #e2e8f0;
+}
+.hidden { display: none; }
+.chatbot-header {
+    background: #f97316;
+    padding: 12px 16px;
+    border-radius: 24px 24px 0 0;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+.chatbot-header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+.chatbot-messages {
+    height: 300px;
+    overflow-y: auto;
+    padding: 12px;
+    background: #f9fafb;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.bot-msg, .user-msg {
+    max-width: 85%;
+    padding: 8px 12px;
+    border-radius: 18px;
+    font-size: 14px;
+}
+.bot-msg { background: #e5e7eb; align-self: flex-start; }
+.user-msg { background: #f97316; color: white; align-self: flex-end; }
+.chatbot-input-area {
+    display: flex;
+    border-top: 1px solid #e2e8f0;
+    padding: 8px;
+}
+.chatbot-input-area input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 40px;
+    outline: none;
+}
+.chatbot-input-area button {
+    background: #f97316;
+    border: none;
+    border-radius: 40px;
+    margin-left: 8px;
+    padding: 0 14px;
+    color: white;
+    cursor: pointer;
+}
+.chatbot-wa-hint {
+    text-align: center;
+    padding: 8px;
+    font-size: 12px;
+    background: #f1f5f9;
+    border-radius: 0 0 24px 24px;
+}
+.chatbot-wa-hint a { color: #f97316; text-decoration: none; }
