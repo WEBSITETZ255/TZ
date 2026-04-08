@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>MATO MEDIA TZ | Ingia au Jiunge</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="landing-container">
+        <div class="glass-card">
+            <div class="logo-area">
+                <img src="logo.png" alt="MATO MEDIA TZ Logo" class="logo-premium">
+                <h1>MATO MEDIA TZ</h1>
+                <p>Suluhisho lako la mitandao!</p>
+            </div>
+            <div class="auth-tabs">
+                <button class="tab-btn active" data-tab="login">Ingia</button>
+                <button class="tab-btn" data-tab="signup">Jiunge</button>
+            </div>
+            <div id="login-form" class="auth-form active">
+                <input type="email" id="login-email" placeholder="Barua pepe">
+                <input type="password" id="login-password" placeholder="Nenosiri">
+                <button id="login-btn" class="btn-primary"><i class="fas fa-sign-in-alt"></i> Ingia</button>
+                <div class="divider">au</div>
+                <button id="google-login-btn" class="btn-google"><i class="fab fa-google"></i> Ingia kwa Google</button>
+                <div id="login-error" class="error-msg"></div>
+            </div>
+            <div id="signup-form" class="auth-form">
+                <input type="email" id="signup-email" placeholder="Barua pepe">
+                <input type="password" id="signup-password" placeholder="Nenosiri (angalau herufi 6)">
+                <button id="signup-btn" class="btn-primary"><i class="fas fa-user-plus"></i> Jiunge</button>
+                <div class="divider">au</div>
+                <button id="google-signup-btn" class="btn-google"><i class="fab fa-google"></i> Jiunge kwa Google</button>
+                <div id="signup-error" class="error-msg"></div>
+            </div>
+        </div>
+    </div>
+    <div id="chatbot-container"></div>
+    <script type="module" src="app.js"></script>
+    <script type="module" src="chatbot.js"></script>
+</body>
+</html>
